@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Launch Status</title>
+    <script>
+        window.addEventListener("load", function(){
+            fetch("https://handlers.education.launchcode.org/static/weather.json").then(function(response){
+                response.json().then(function(json){
+                    console.log(json);
+                    const div=document.getElementById("weather-conditions");
+                    div.innerHTML=`
+                    <h1> Your Weather Report: </h1>
+                    <div>
+                        <p> Temp: ${json.temp}F </p>
+                        <p> Wind Speed: ${json.windSpeed}mph</p>
+                        <p> Status: ${json.status}</p>
+                        <p> Chance of Precipitation: ${json.chanceOfPrecipitation}%</p>
+
+                    </div>
+                    `
+                });
+            });
+        });
+    </script>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body style="text-align: center;">
+    <script src="script.js"></script>
+<div>
+    <h1>Hey hey, here comes the practice</h1>
+    <h2>Launch Status</h2>
+    <h3>Weather Conditions</h3>
+    <div id="weather-conditions">
+
+    </div>
+</div>  
+
+<div>
+
+
+    
+</div>
+
+</body>
+</html>
